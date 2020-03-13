@@ -45,8 +45,8 @@ class Login extends Component {
         }).then(r => r.json())
             .then(b => {
                 console.log(b)
-                if (b.msg) {
-                    document.getElementById("messaggioErrore").innerText = b.msg
+                if (b.error) {
+                    document.getElementById("messaggioErrore").innerText = b.error
                 }
 
                 if (b.authenticated) {

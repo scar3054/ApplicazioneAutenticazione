@@ -26,6 +26,7 @@ export default class Dashboard extends Component {
 			this.setState({ exit: true })
 			return
 		}
+		console.log("Chiedo i dati")
 		fetch("https://fitness-diary--shakirhs.repl.co/api",
 			{
 				headers:
