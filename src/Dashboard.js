@@ -96,11 +96,11 @@ export default class Dashboard extends Component {
 
 
 	render() {
-		// if (this.state.exit) {
-		// 	return (
-		// 		<Redirect to="/login" />
-		// 	)
-		// }
+		if (this.state.exit) {
+			return (
+				<Redirect to="/login" />
+			)
+		}
 		return (
 			<div style={{
 				margin: 'auto',

@@ -17,20 +17,23 @@ export default function App() {
                             <Link to="/login">Login</Link>
                         </li>
                         <li>
-                            <Link to="/logout">Logout</Link>
+                            <Link to="/login" onClick={e => {
+                                console.log("Logging out");
+                                localStorage.clear()
+                            }}>Logout</Link>
                         </li>
                         <li>
                             <Link to="/register">Register</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/dashboard">Dashboard</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </Route>
                 <Route exact path="/login" component={Login} />
 
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                {/* <Route exact path="/dashboard" component={Dashboard} /> */}
             </div>
         </Router >
     );

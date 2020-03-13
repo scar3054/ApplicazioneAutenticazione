@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Login extends Component {
 
@@ -90,6 +90,7 @@ class Login extends Component {
                 <p id="messaggioErrore" style={styles}></p>
                 <br />
                 <button onClick={this.login}>Login</button>
+                <p>Non sei registrato? <Link to="/register">Register</Link></p>
             </div>
         );
     }
