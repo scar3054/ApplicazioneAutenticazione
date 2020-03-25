@@ -13,8 +13,10 @@ class Login extends Component {
 
     componentDidMount = () => {
         const token = localStorage.getItem("jwt")
-        if (!token)
+        if (!token) {
+            localStorage.removeItem("cibi")
             return
+        }
 
         fetch("https://server-autenticazione--shakirhs.repl.co/test", {
             headers: {

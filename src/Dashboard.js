@@ -26,6 +26,8 @@ export default class Dashboard extends Component {
 			this.setState({ exit: true })
 			return
 		}
+		const cibi = JSON.parse(localStorage.getItem("cibi"))
+
 		console.log("Chiedo i dati")
 		fetch("https://fitness-diary--shakirhs.repl.co/api",
 			{
@@ -43,10 +45,16 @@ export default class Dashboard extends Component {
 						peso: b.peso,
 						altezza: b.altezza
 					})
+				if (cibi) {
+					this.setState({ cibi: cibi })
+					this.calcolaConsumo()
+				}
 				this.calcolaFabbisogno()
 			})
 
 	}
+
+
 
 	calcolaFabbisogno = () => {
 		let kCal = 1
@@ -86,12 +94,16 @@ export default class Dashboard extends Component {
 			cibi.push({ id, cibo, calorie })
 		this.setState({ cibi: cibi })
 		this.calcolaConsumo()
+		//QUI AGGIORNO LISTA
+		localStorage.setItem("cibi", JSON.stringify(this.state.cibi))
 	}
 
 	deleteCibo = async (id) => {
 		const filteredCibi = this.state.cibi.filter(c => c.id !== id)
 		await this.setState({ cibi: filteredCibi })
 		this.calcolaConsumo()
+		//QUI AGGIORNO LISTA
+		localStorage.setItem("cibi", JSON.stringify(this.state.cibi))
 	}
 
 
